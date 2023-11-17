@@ -16,7 +16,11 @@ export class NewsItem extends Component {
           }}
         >
           <img
-            src={imageUrl}
+            src={
+              !imageUrl
+                ? "https://cdn.vox-cdn.com/thumbor/M7D3u7rsKddbeYZPptgkRwWw6UY=/0x0:2040x1360/1200x628/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/23951393/STK088_VRG_Illo_N_Barclay_2_spotify.jpg"
+                : imageUrl
+            }
             className="card-img-top"
             alt="..."
             style={{ height: "10rem", objectFit: "cover" }}
