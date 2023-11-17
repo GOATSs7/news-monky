@@ -28,7 +28,8 @@ export class News extends Component {
       author: "The Indian Express",
       title:
         "South Africa vs Australia Live Score, World Cup 2023 SemiFinal: Play to resume at 3:55 PM in Kolkata  The Indian Express",
-      description: null,
+      description:
+        "lorem35  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolor neque labore reiciendis ducimus odio qui aperiam natus deleniti eum illum, esse nihil ipsam sequi impedit ratione magni vel incidunt. Delectus cum fugit deserunt dolorem, nisi at nulla dignissimos officiis, laborum ex eius architecto aliquam aliquid nostrum provident aut earum?",
       url: "https://indianexpress.com/article/sports/cricket/southafricavsaustralialivescoreworldcup20232ndsemifinalsavsausscorecardupdatesedengardenskolkata9028629/",
       urlToImage: null,
       publishedAt: "20231116T10:15:00Z",
@@ -197,21 +198,20 @@ export class News extends Component {
     return (
       <div className="container my-3">
         <h2>NewsMonky - Top Headlines</h2>
+
         <div className="row">
-          <div className="col-md-4">
-            <NewsItem
-              title="myTitle"
-              discription="myDiscription"
-              imageUrl="https://c.ndtvimg.com/2023-08/5mtb93eo_neville-roy-singham-1200_625x300_07_August_23.jpg"
-              newsUrl="TODO"
-            />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="myTitle" discription="myDiscription" />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="myTitle" discription="myDiscription" />
-          </div>
+          {this.state.article.map((element) => {
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title.slice(0, 30)}
+                  description={element.description.slice(0, 45)}
+                  imageUrl={element.urlToImage}
+                  newsUrl={element.url}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     );
